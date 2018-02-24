@@ -6,6 +6,7 @@ package c4q.com.app_rebuild_practice.modelclasses;
 
 public class Picture {
 
+
     private String medium;
     private String thumbnail;
 

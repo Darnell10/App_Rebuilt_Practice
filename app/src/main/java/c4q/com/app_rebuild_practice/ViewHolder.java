@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import c4q.com.app_rebuild_practice.modelclasses.Results;
 
 /**
@@ -17,11 +19,13 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     TextView  firstName;
     TextView  lastName;
 
+
     public ViewHolder(View itemView) {
         super(itemView);
 
         firstName=itemView.findViewById(R.id.first_name);
         lastName=itemView.findViewById(R.id.last_name);
+        imageView=itemView.findViewById(R.id.image_view);
 
     }
 
@@ -29,5 +33,14 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     public void onbind(Results results){
         firstName.setText(results.getName().getFirst());
         lastName.setText(results.getName().getLast());
+
+        //this string variable should be in the global field
+        String url = results.getPicture().getMedium();
+        Picasso.with(itemView.getContext())
+                .load(url)
+                .into(imageView);
     }
+
+
+
 }
