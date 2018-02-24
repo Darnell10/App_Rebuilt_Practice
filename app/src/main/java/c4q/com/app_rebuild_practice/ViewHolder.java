@@ -1,5 +1,6 @@
 package c4q.com.app_rebuild_practice;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,7 +31,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     }
 
 
-    public void onbind(Results results){
+    public void onbind(final Results results){
         firstName.setText(results.getName().getFirst());
         lastName.setText(results.getName().getLast());
 
@@ -39,7 +40,22 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         Picasso.with(itemView.getContext())
                 .load(url)
                 .into(imageView);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent details = new Intent(itemView.getContext(),DetailActivity.class);
+                details.putExtra("picture",results.getPicture().getMedium());
+                details.putExtra("name",results.getName().getFirst());
+                details.putExtra("email",results.getEmail());
+                details.putExtra("dob",results.getDob());
+                details.putExtra("cell",results.getCell());
+                details.putExtra("address",results.getLocation().getCity());
+                itemView.getContext().startActivity(details);
+            }
+        });
     }
+
 
 
 
