@@ -2,8 +2,13 @@ package c4q.com.app_rebuild_practice;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.List;
+
+import c4q.com.app_rebuild_practice.modelclasses.Results;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG ="Hey there...";
 
     NetworkService networkService;
+    List<Response> userList;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +41,17 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         networkService = retrofit.create(NetworkService.class);
 
-        Call<User> userCall = networkService.getUser();
+        final Call<User> userCall = networkService.getUser();
         userCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.d(TAG,"OnResponse" + response.body().getResults());
+                User user = response.body();
+                userList = user.getResults();
+                recyclerView = findViewById(R.id.rv);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                recyclerView.setAdapter(new RvAdapter(userList));
+
             }
 
             @Override

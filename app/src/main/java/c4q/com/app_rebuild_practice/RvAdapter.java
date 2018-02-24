@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import c4q.com.app_rebuild_practice.modelclasses.Results;
+import retrofit2.Response;
 
 /**
  * Created by D on 2/22/18.
@@ -16,6 +17,12 @@ import c4q.com.app_rebuild_practice.modelclasses.Results;
 public class RvAdapter extends RecyclerView.Adapter<ViewHolder>{
 
     List<Results> resultsList;
+
+    //constructor for above list
+
+    public RvAdapter(List<Response> resultsList){
+        this.resultsList = resultsList;
+    }
 
 
     @Override
