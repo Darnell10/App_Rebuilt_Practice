@@ -3,7 +3,6 @@ package c4q.com.app_rebuild_practice;
 import java.util.List;
 
 import c4q.com.app_rebuild_practice.modelclasses.Results;
-import retrofit2.Response;
 
 /**
  * Created by D on 2/22/18.
@@ -11,9 +10,9 @@ import retrofit2.Response;
 
 public class User {
 
-    private List<Response> results;
+    private List<Results> results;
 
-    public List<Response> getResults(){
+    public List<Results> getResults(){
         return results;
     }
 

@@ -4,7 +4,6 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG ="Hey there...";
 
     NetworkService networkService;
-    List<Response> userList;
+    List<Results> userList;
     RecyclerView recyclerView;
     Configuration configuration;
 

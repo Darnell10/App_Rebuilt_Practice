@@ -3,4 +3,9 @@
     <string name="title_activity_detail">Detail Activity</string>
     <string name="refresh">Refresh</string>
     <string name="title_activity_detail_activiy">DetailActiviy</string>
+    <string name="name">Name</string>
+    <string name="dob">Dob</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+    <string name="cell">Cell</string>
 </resources>

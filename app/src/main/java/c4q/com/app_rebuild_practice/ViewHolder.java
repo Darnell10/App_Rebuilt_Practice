@@ -34,7 +34,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         firstName.setText(results.getName().getFirst());
         lastName.setText(results.getName().getLast());
 
-        //this string variable should be in the global field
+        //this string variable should be in the
         String url = results.getPicture().getMedium();
         Picasso.with(itemView.getContext())
                 .load(url)
